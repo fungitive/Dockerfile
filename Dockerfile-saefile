@@ -1,0 +1,11 @@
+FROM centos：7.3.1611
+RUN yum python-setuptools python-imaging python-ldap python-memcached MySQL-python wget
+ADD /opt/saefile/
+COPY opt/saefile/seafile-server_6.2.5_x86-64.tar.gz /opt/saefile/
+WORKDIR /opt/saefile/
+RUN wget http://seafile-downloads.oss-cn-shanghai.aliyuncs.com/seafile-server_6.2.5_x86-64.tar.gz
+RUN tar -zxvf seafile-server_6.2.5_x86-64.tar.gz && rm -Rf seafile-server_6.2.5_x86-64.tar.gz
+WORKDIR /opt/saefile/seafile-server-6.2.5
+EXPOSE 8000 8002
+ENTRYPOINT 
+
